@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using Xunit;
 
 namespace GenericLinkedList
@@ -9,7 +8,7 @@ namespace GenericLinkedList
         private CustomLinkedList<string> _customLinkedList = new CustomLinkedList<string>();
 
         [Theory]
-        [InlineData("X", 3, "A->B->X->C->D->E->")]
+        [InlineData("X", 3, "A->B->C->X->D->E->")]
         public void Insert_GivenItemAndPosition_InsertsNode(string item, int position, string expected)
         {
             string[] items = { "A", "B", "C", "D", "E" };
@@ -23,7 +22,7 @@ namespace GenericLinkedList
 
         [Theory]
         [InlineData("X", -1, "Index is out of range")]
-        //[InlineData("X", 0, "Index is out of range")]
+        [InlineData("X", 0, "Index is out of range")]
         [InlineData("X", 35, "Index is out of range")]
         public void Insert_PositionOutOfRange_ThrowsExceptionWithMessage(string item, int position, string expectedMessage)
         {
@@ -63,7 +62,7 @@ namespace GenericLinkedList
         }
 
         [Theory]
-        [InlineData("A->B->C->E->")]
+        [InlineData("A->B->C->D->E->")]
         public void PrintList_LinkedListWithNodes_PrintsNodesAsString(string expected)
         {
             string[] items = { "A", "B", "C", "D", "E" };

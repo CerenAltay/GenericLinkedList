@@ -72,7 +72,6 @@ namespace GenericLinkedList
                 return;
             }
 
-            //check double condition
             for (int i = 0; currentNode != null && i < position - 1; i++)
             {
                 currentNode = currentNode.next;
@@ -114,7 +113,7 @@ namespace GenericLinkedList
         {
             int numberOfNodes = CountNodes();
 
-            if (index < 0 || index > numberOfNodes)
+            if (index < 1 || index > numberOfNodes)
             {
                 return true;
 
