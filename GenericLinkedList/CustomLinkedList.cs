@@ -6,6 +6,7 @@ namespace GenericLinkedList
     public class CustomLinkedList<T>
     {
         public Node<T> head;
+        public Node<T> tail;
         private const string IndexOutOfRangeExMessage = "Index is out of range";
         private const string ListIsEmptyMessage = "List is Empty";
 
@@ -13,10 +14,14 @@ namespace GenericLinkedList
         {
             foreach (var item in items)
             {
-                Node<T> newNode = new Node<T>(item);
-
-                newNode.next = head;
-                head = newNode;
+                if (head == null)
+                {
+                    head = tail = new Node<T>(item);
+                }
+                else
+                {
+                    tail = tail.next = new Node<T>(item);
+                }
             }
         }
 
@@ -40,6 +45,7 @@ namespace GenericLinkedList
                 {
 
                     currentNode = currentNode.next;
+
                 }
             }
             newNode.next = currentNode.next;
