@@ -10,15 +10,14 @@ namespace GenericLinkedList
             CustomLinkedList<string> linkedList2 = new CustomLinkedList<string>();
 
            //initialize data to display on console
-            
             Node<string> firstNode = new Node<string>("A");
             Node<string> secondNode = new Node<string>("B");
             Node<string> thirdNode = new Node<string>("C");
             Node<string> fourthNode = new Node<string>("D");
             linkedList2.head = firstNode;
-            firstNode.next = secondNode;
-            secondNode.next = thirdNode;
-            thirdNode.next = fourthNode;
+            firstNode.Next = secondNode;
+            secondNode.Next = thirdNode;
+            thirdNode.Next = fourthNode;
 
             linkedList2.PrintList();
             linkedList2.Insert("X", 2);

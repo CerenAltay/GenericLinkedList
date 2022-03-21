@@ -6,7 +6,7 @@ namespace GenericLinkedList
     public class CustomLinkedList<T>
     {
         public Node<T> head;
-        public Node<T> tail;
+        private Node<T> tail;
         private const string IndexOutOfRangeExMessage = "Index is out of range";
         private const string ListIsEmptyMessage = "List is Empty";
 
@@ -20,7 +20,7 @@ namespace GenericLinkedList
                 }
                 else
                 {
-                    tail = tail.next = new Node<T>(item);
+                    tail = tail.Next = new Node<T>(item);
                 }
             }
         }
@@ -36,7 +36,7 @@ namespace GenericLinkedList
 
             if (position == 1)
             {
-                newNode.next = head;
+                newNode.Next = head;
                 head = newNode;
             }
             else
@@ -44,11 +44,11 @@ namespace GenericLinkedList
                 for (int i = 1; i < position - 1; i++)
                 {
 
-                    currentNode = currentNode.next;
+                    currentNode = currentNode.Next;
                 }
             }
-            newNode.next = currentNode.next;
-            currentNode.next = newNode;
+            newNode.Next = currentNode.Next;
+            currentNode.Next = newNode;
         }
 
         //index starts at zero correct
@@ -67,21 +67,21 @@ namespace GenericLinkedList
 
             if (position == 1)
             {
-                head = currentNode.next;
+                head = currentNode.Next;
                 return;
             }
 
             for (int i = 1; currentNode != null && i < position - 1; i++)
             {
-                currentNode = currentNode.next;
+                currentNode = currentNode.Next;
             }
-            if (currentNode == null || currentNode.next == null)
+            if (currentNode == null || currentNode.Next == null)
             {
                 return;
             }
 
-            Node<T> nextNode = currentNode.next.next;
-            currentNode.next = nextNode;
+            Node<T> NextNode = currentNode.Next.Next;
+            currentNode.Next = NextNode;
         }
 
         public string PrintList()
@@ -98,10 +98,11 @@ namespace GenericLinkedList
             while (currentNode != null)
             {
                 //for console representation
-                Console.Write(currentNode.data + "->");
+                Console.Write(currentNode.Data + "->");
+
                 //for unit test checks
-                printedNodeList.Add(currentNode.data + "->");
-                currentNode = currentNode.next;
+                printedNodeList.Add(currentNode.Data + "->");
+                currentNode = currentNode.Next;
             }
             string printedNodes = string.Join("", printedNodeList.ToArray());
             return printedNodes;
@@ -112,7 +113,7 @@ namespace GenericLinkedList
         {
             int numberOfNodes = CountNodes();
 
-            if (index < 1 || index > numberOfNodes+1)
+            if (index < 1 || index > numberOfNodes + 1)
             {
                 return true;
 
@@ -138,7 +139,7 @@ namespace GenericLinkedList
             while (currentNode != null)
             {
                 count++;
-                currentNode = currentNode.next;
+                currentNode = currentNode.Next;
             }
             return count;
         }

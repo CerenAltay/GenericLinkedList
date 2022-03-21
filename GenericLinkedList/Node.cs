@@ -8,20 +8,14 @@ namespace GenericLinkedList
 {
     public class Node<T>
     {
-        public T data { get; set; }
+        public T Data { get; set; }
 
+        public Node<T> Next { get; set; }
 
-        // public Node<T> Head { get; set; }
-        public Node<T> next { get; set; }
-
-        public Node(T data)
+        public Node(T Data)
         {
-            this.data = data;
-            this.next = null;
-        }
-
-        public Node()
-        {
+            this.Data = Data;
+            this.Next = null;
         }
     }
 }
