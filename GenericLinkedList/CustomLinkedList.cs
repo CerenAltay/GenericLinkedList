@@ -5,12 +5,13 @@ namespace GenericLinkedList
 {
     public class CustomLinkedList<T>
     {
+        //allowed head to be public in order to initiate data from Program.cs fro console demonstration
         public Node<T> head;
         private Node<T> tail;
         private const string IndexOutOfRangeExMessage = "Index is out of range";
         private const string ListIsEmptyMessage = "List is Empty";
 
-        public void InitiateData(IEnumerable<T> items)
+        public void InitializeData(IEnumerable<T> items)
         {
             foreach (var item in items)
             {
@@ -43,7 +44,6 @@ namespace GenericLinkedList
             {
                 for (int i = 1; i < position - 1; i++)
                 {
-
                     currentNode = currentNode.Next;
                 }
             }
@@ -51,7 +51,6 @@ namespace GenericLinkedList
             currentNode.Next = newNode;
         }
 
-        //index starts at zero correct
         public void Delete(int position)
         {
             if (IsIndexOutOfRange(position) == true)
