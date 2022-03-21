@@ -33,7 +33,7 @@ namespace GenericLinkedList
             {
                 throw new IndexOutOfRangeException(IndexOutOfRangeExMessage);
             }
-            Node<T> newNode = new(item);
+            Node<T> newNode = new Node<T>(item);
             Node<T> currentNode = head;
 
             if (position == 1)
@@ -86,7 +86,7 @@ namespace GenericLinkedList
                 return ListIsEmptyMessage;
             }
 
-            List<string> printedNodeList = new();
+            List<string> printedNodeList = new List<string>();
 
             while (currentNode != null)
             {
