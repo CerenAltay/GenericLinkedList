@@ -21,13 +21,13 @@ namespace GenericLinkedList
             thirdNode.next = fourthNode;
 
             linkedList2.PrintList();
-            linkedList2.Insert("X", 4);
+            linkedList2.Insert("X", 2);
             Console.WriteLine();
-            Console.WriteLine("Insert node 'X' on position 4");
+            Console.WriteLine("Insert node 'X' on position 2");
             linkedList2.PrintList();
             Console.WriteLine();
-            Console.WriteLine("Delete the node on position 1");
-            linkedList2.Delete(1);
+            Console.WriteLine("Delete the node on position 3");
+            linkedList2.Delete(3);
             linkedList2.PrintList();
         }
     }

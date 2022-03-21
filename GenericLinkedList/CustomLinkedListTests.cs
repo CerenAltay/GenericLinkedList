@@ -8,7 +8,9 @@ namespace GenericLinkedList
         private CustomLinkedList<string> _customLinkedList = new CustomLinkedList<string>();
 
         [Theory]
-        [InlineData("X", 3, "A->B->C->X->D->E->")]
+        [InlineData("X", 3, "A->B->X->C->D->E->")]
+        //[InlineData("X", 1, "X->A->B->C->D->E->")]
+        [InlineData("X", 6, "A->B->C->D->E->X->")]
         public void Insert_GivenItemAndPosition_InsertsNode(string item, int position, string expected)
         {
             string[] items = { "A", "B", "C", "D", "E" };
@@ -35,7 +37,9 @@ namespace GenericLinkedList
         }
 
         [Theory]
-        [InlineData(3, "A->B->C->E->")]
+        [InlineData(5, "A->B->C->D->")]
+        [InlineData(1, "B->C->D->E->")]
+        [InlineData(3, "A->B->D->E->")]
         public void Delete_GivenPosition_DeletesNode(int position, string expected)
         {
             string[] items = { "A", "B", "C", "D", "E" };
@@ -49,7 +53,7 @@ namespace GenericLinkedList
 
         [Theory]
         [InlineData(-1, "Index is out of range")]
-        //[InlineData( 0, "Index is out of range")]
+        [InlineData( 0, "Index is out of range")]
         [InlineData(35, "Index is out of range")]
         public void Delete_PositionOutOfRange_ThrowsExceptionWithMessage(int position, string expectedMessage)
         {

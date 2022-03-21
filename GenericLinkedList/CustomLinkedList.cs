@@ -34,18 +34,17 @@ namespace GenericLinkedList
             Node<T> newNode = new(item);
             Node<T> currentNode = head;
 
-            if (position == 0)
+            if (position == 1)
             {
                 newNode.next = head;
                 head = newNode;
             }
             else
             {
-                for (int i = 0; i < position - 1; i++)
+                for (int i = 1; i < position - 1; i++)
                 {
 
                     currentNode = currentNode.next;
-
                 }
             }
             newNode.next = currentNode.next;
@@ -66,13 +65,13 @@ namespace GenericLinkedList
             }
             Node<T> currentNode = head;
 
-            if (position == 0)
+            if (position == 1)
             {
                 head = currentNode.next;
                 return;
             }
 
-            for (int i = 0; currentNode != null && i < position - 1; i++)
+            for (int i = 1; currentNode != null && i < position - 1; i++)
             {
                 currentNode = currentNode.next;
             }
@@ -113,7 +112,7 @@ namespace GenericLinkedList
         {
             int numberOfNodes = CountNodes();
 
-            if (index < 1 || index > numberOfNodes)
+            if (index < 1 || index > numberOfNodes+1)
             {
                 return true;
 
