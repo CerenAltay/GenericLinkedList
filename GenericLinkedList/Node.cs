@@ -15,7 +15,6 @@ namespace GenericLinkedList
         public Node(T Data)
         {
             this.Data = Data;
-            this.Next = null;
         }
     }
 }

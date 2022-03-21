@@ -5,7 +5,8 @@ namespace GenericLinkedList
 {
     public class CustomLinkedList<T>
     {
-        //allowed head to be public in order to initiate data from Program.cs fro console demonstration
+        //allowed head to be public in order to initiate
+        //data from Program.cs for console demonstration
         public Node<T> head;
         private Node<T> tail;
         private const string IndexOutOfRangeExMessage = "Index is out of range";
@@ -37,8 +38,9 @@ namespace GenericLinkedList
 
             if (position == 1)
             {
-                newNode.Next = head;
                 head = newNode;
+                head.Next = currentNode;
+                newNode = currentNode.Next;
             }
             else
             {
@@ -46,8 +48,8 @@ namespace GenericLinkedList
                 {
                     currentNode = currentNode.Next;
                 }
+                newNode.Next = currentNode.Next;
             }
-            newNode.Next = currentNode.Next;
             currentNode.Next = newNode;
         }
 
@@ -58,10 +60,6 @@ namespace GenericLinkedList
                 throw new IndexOutOfRangeException(IndexOutOfRangeExMessage);
             }
 
-            if (head == null)
-            {
-                return;
-            }
             Node<T> currentNode = head;
 
             if (position == 1)
@@ -73,10 +71,6 @@ namespace GenericLinkedList
             for (int i = 1; currentNode != null && i < position - 1; i++)
             {
                 currentNode = currentNode.Next;
-            }
-            if (currentNode == null || currentNode.Next == null)
-            {
-                return;
             }
 
             Node<T> NextNode = currentNode.Next.Next;

@@ -9,7 +9,7 @@ namespace GenericLinkedList
 
         [Theory]
         [InlineData("X", 3, "A->B->X->C->D->E->")]
-       // [InlineData("X", 1, "X->A->B->C->D->E->")]
+        [InlineData("X", 1, "X->A->B->C->D->E->")]
         [InlineData("X", 6, "A->B->C->D->E->X->")]
         public void Insert_GivenItemAndPosition_InsertsNode(string item, int position, string expected)
         {
